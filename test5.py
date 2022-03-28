@@ -1,11 +1,11 @@
 
 
 def my_range(m,n):
-    l = [m]
+    l = []
 
     while m < n:
-        m += 1
         l.append(m)
+        m += 1
     return l
 print(my_range(0,5))
 
