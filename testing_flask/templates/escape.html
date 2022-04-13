@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block container %}
+
+        <h1>{{ title }}</h1>
+        <p>{{ text }}</p>
+        {% if choices %}
+            <p>What do you do?</p>
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+
+            </ul>
+        {% else %}     
+            <p>THE END.</p>
+
+
+            <p><a href="{{url_for('start')}}">Play again.</a></p>
+        {% endif %}
+
+        <img src="https://games.mail.ru/hotbox/content_files/gallery/a8/f4/city_life_2008_edition_screenshot_98e3c27e.jpeg">
+
+{% endblock %}

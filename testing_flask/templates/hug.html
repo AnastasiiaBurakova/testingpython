@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block container %}       
+
+        <h1>{{ title }}</h1>
+        <p>{{ text }}</p>
+        {% if choices %}
+            <p>What do you do?</p>
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+
+            </ul>
+        {% else %}     
+            <p>THE END.</p>
+
+
+            <p><a href="{{url_for('start')}}">Play again.</a></p>
+        {% endif %}
+
+        <img src="https://images.squarespace-cdn.com/content/v1/5dc5871076ef2066410c8888/1573269233212-CC2ARLEAQQPIX8W4JQ7C/granny%2Bwolf.jpg?format=1000w">
+
+{% endblock %}
