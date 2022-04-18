@@ -71,10 +71,17 @@ def FizzBuzz(i):
     return render_template('fizzbuzz.html', numbers=l)
 
 
-#@app.route("/words/<string:word>")
-#def words(word):
-    #f = open("words.txt)
+@app.route("/words/<string:word>")
+def words(word):
+    f = open("words.txt")
 
-    #word_list = f.read().splitlines()
+    word_list = f.read().splitlines()
+
+    is_real_word = word.upper() in word_list
+
+    anagrams = []
+    for w in word_list:
+        if sorted(word.upper()) == sorted(w):
+            anagrams.append(w)
     
-    #return render_template('words.html', word=word)
+    return render_template('words.html', word=word, is_real_word=is_real_word, anagrams=anagrams)

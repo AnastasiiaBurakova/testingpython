@@ -2,7 +2,20 @@
 
 {% block container %}       
 
+    {% if is_real_word %}
+        <h1>{{word}} is a real word.</h1>
+    {% else %}
+        <h1>Word not found.</h1>
+    {% endif %}   
 
-       
+    {% if anagrams %}
+
+        <ul>
+            {% for anagram in anagrams %}
+                <li>{{anagram}}</li>
+            {% endfor %}    
+        </ul>
+
+    {% endif %}
 
 {% endblock %}
