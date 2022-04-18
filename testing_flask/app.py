@@ -53,3 +53,28 @@ def give_hug():
     choices = []
 
     return render_template('hug.html', title=title, text=text, choices=choices)
+
+
+@app.route("/fizzbuzz/<int:i>")
+def FizzBuzz(i):
+    l = []
+    for i in range(1, i+1):
+
+        if (i % 3 == 0 and i % 5 != 0):
+            l.append ('Fizz')
+        elif (i % 5 == 0 and i % 3 != 0):
+            l.append ('Buzz')
+        elif (i % 3 == 0 and i % 5 == 0):
+            l.append ('FizzBuzz')
+        else: 
+            l.append (i)   
+    return render_template('fizzbuzz.html', numbers=l)
+
+
+#@app.route("/words/<string:word>")
+#def words(word):
+    #f = open("words.txt)
+
+    #word_list = f.read().splitlines()
+    
+    #return render_template('words.html', word=word)
